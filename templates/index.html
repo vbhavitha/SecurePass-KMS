@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🔐 Security Dashboard</h1>
+
+<p class="dashboard-subtitle">
+    Manage cryptographic keys, password security,
+    and encryption operations from a centralized console.
+</p>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-shield"></i>
+    Password Strength
+</h3>
+        <p>{{ strength }}</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-chart-simple"></i>
+    Entropy
+</h3>
+        <p>{{ entropy }}</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-key"></i>
+    Password Generator
+</h3>
+        <p>Ready</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    Breach Checker
+</h3>
+        <p>{{ breach }}</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-database"></i>
+    Total Keys
+</h3>
+        <p>{{ total_keys }}</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-lock"></i>
+    AES Keys
+</h3>
+        <p>{{ aes_count }}</p>
+    </div>
+
+    <div class="card">
+        <h3>
+    <i class="fa-solid fa-user-lock"></i>
+    RSA Keys
+</h3>
+        <p>{{ rsa_count }}</p>
+    </div>
+
+    <div class="card">
+    <h3>
+    <i class="fa-solid fa-circle-check"></i>
+    Active Keys
+</h3>
+    <p>{{ active_keys }}</p>
+</div>
+
+<div class="card">
+    <h3>
+    <i class="fa-solid fa-ban"></i>
+    Revoked Keys
+</h3>
+    <p>{{ revoked_keys }}</p>
+</div>
+
+<div class="card">
+    <h3>
+        <i class="fa-solid fa-clipboard-list"></i>
+        Audit Events
+    </h3>
+
+    <p>{{ audit_events }}</p>
+</div>
+
+</div>
+
+<div class="activity-section">
+
+    <h2>📋 Recent Security Activity</h2>
+
+    <div class="activity-feed">
+
+        {% for log in recent_logs %}
+
+        <div class="activity-item">
+
+            {% if log[0] == "GENERATE_AES" %}
+                🟢 Generated AES Key:
+            {% elif log[0] == "GENERATE_RSA" %}
+                🟣 Generated RSA Key:
+            {% elif log[0] == "REVOKE_KEY" %}
+                🔴 Revoked Key:
+            {% elif log[0] == "FILE_ENCRYPT" %}
+                🔵 Encrypted File:
+            {% else %}
+                ⚪ Activity:
+            {% endif %}
+
+            {{ log[1] }}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

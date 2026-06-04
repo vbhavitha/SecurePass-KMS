@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+    <i class="fa-solid fa-clipboard-list"></i>
+    Audit Logs
+</h1>
+
+<table>
+
+    <tr>
+        <th>Action</th>
+        <th>Details</th>
+        <th>Timestamp</th>
+    </tr>
+
+    {% for log in logs %}
+
+    <tr>
+
+        <td>
+
+            {% if log[0] == "GENERATE_AES" %}
+                🟢 {{ log[0] }}
+
+            {% elif log[0] == "GENERATE_RSA" %}
+                🟣 {{ log[0] }}
+
+            {% elif log[0] == "REVOKE_KEY" %}
+                🔴 {{ log[0] }}
+
+            {% elif log[0] == "FILE_ENCRYPT" %}
+                🔵 {{ log[0] }}
+
+            {% elif log[0] == "FILE_DECRYPT" %}
+                🟦 {{ log[0] }}
+
+            {% else %}
+                ⚪ {{ log[0] }}
+
+            {% endif %}
+
+        </td>
+
+        <td>{{ log[1] }}</td>
+
+        <td>{{ log[2] }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

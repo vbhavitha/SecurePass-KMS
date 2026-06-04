@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>File Encryption</h1>
+
+<form
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+    <input
+        type="file"
+        name="file"
+        required
+    >
+
+    <br><br>
+
+    <button
+        type="submit"
+        name="encrypt"
+    >
+        Encrypt
+    </button>
+
+    <button
+        type="submit"
+        name="decrypt"
+    >
+        Decrypt
+    </button>
+
+</form>
+
+{% if message %}
+
+<h3>{{ message }}</h3>
+
+{% endif %}
+
+{% if download_file %}
+
+<br>
+
+<a
+    href="/download/{{ download_file }}"
+>
+
+<button>
+Download File
+</button>
+
+</a>
+
+{% endif %}
+
+{% endblock %}

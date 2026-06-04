@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Password Generator</h1>
+
+<form method="POST">
+
+    <input
+        type="number"
+        name="length"
+        min="8"
+        max="64"
+        placeholder="Password Length"
+        required
+    >
+
+    <button type="submit">
+        Generate
+    </button>
+
+</form>
+
+{% if password %}
+
+<h2>Generated Password</h2>
+
+<input
+    type="text"
+    id="generatedPassword"
+    value="{{ password }}"
+    readonly
+>
+
+<button onclick="copyPassword()">
+    Copy
+</button>
+
+{% endif %}
+
+<script>
+
+function copyPassword() {
+
+    const passwordField =
+        document.getElementById(
+            "generatedPassword"
+        );
+
+    passwordField.select();
+
+    navigator.clipboard.writeText(
+        passwordField.value
+    );
+
+    alert("Password Copied!");
+}
+
+</script>
+
+{% endblock %}

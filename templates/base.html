@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecurePass KMS</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='style.css') }}">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+
+        <h2>SecurePass KMS</h2>
+
+        <a href="/"><i class="fa-solid fa-chart-line"></i>Dashboard</a>
+        <a href="/analyzer"><i class="fa-solid fa-shield-halved"></i>Password Analyzer</a>
+        <a href="/generator"><i class="fa-solid fa-key"></i>Password Generator</a>
+        <a href="/inventory"><i class="fa-solid fa-database"></i>Key Inventory</a>
+        <a href="/key-management"><i class="fa-solid fa-gears"></i>Key Management</a>
+        <a href="/aes"><i class="fa-solid fa-lock"></i>AES Encryption</a>
+        <a href="/rsa"><i class="fa-solid fa-user-lock"></i>RSA Encryption</a>
+        <a href="/file-encryption"><i class="fa-solid fa-file-shield"></i>File Encryption</a>
+        <a href="/audit-logs"><i class="fa-solid fa-clipboard-list"></i>Audit Logs</a>
+
+    </div>
+
+    <div class="content">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+    <p>
+        SecurePass KMS © 2026
+    </p>
+
+    <p>
+        Built with Flask, SQLite, AES-256, RSA-2048
+    </p>
+
+</footer>
+
+</body>
+</html>

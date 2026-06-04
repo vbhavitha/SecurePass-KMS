@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>RSA Encryption</h1>
+
+<form method="POST">
+
+    <textarea
+        name="text"
+        rows="6"
+        cols="70"
+        placeholder="Enter text"
+        required
+    ></textarea>
+
+    <br><br>
+
+    <button
+        type="submit"
+        name="encrypt"
+    >
+        Encrypt
+    </button>
+
+    <button
+        type="submit"
+        name="decrypt"
+    >
+        Decrypt
+    </button>
+
+</form>
+
+{% if encrypted %}
+
+<h2>Encrypted Output</h2>
+
+<textarea
+    rows="8"
+    cols="70"
+    readonly
+>{{ encrypted }}</textarea>
+
+{% endif %}
+
+{% if decrypted %}
+
+<h2>Decrypted Output</h2>
+
+<textarea
+    rows="4"
+    cols="70"
+    readonly
+>{{ decrypted }}</textarea>
+
+{% endif %}
+
+{% endblock %}

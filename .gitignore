@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+
+database/*.db
+
+keys/aes/*.key
+keys/rsa/*.pem
+
+uploads/
+encrypted_files/
+decrypted_files/

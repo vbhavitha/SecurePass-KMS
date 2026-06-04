@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Password Analyzer</h1>
+
+<form method="POST">
+
+    <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        required
+    >
+
+    <button type="submit">
+        Analyze
+    </button>
+
+</form>
+
+{% if result %}
+
+<h2>Results</h2>
+
+<p><b>Basic Score:</b> {{ result.basic }}/5</p>
+
+<p><b>Entropy:</b> {{ result.entropy }} bits</p>
+
+<p><b>Strength:</b> {{ result.strength }}</p>
+
+<p><b>zxcvbn Score:</b> {{ result.zxcvbn_score }}/4</p>
+
+<p><b>Breach Status:</b> {{ result.breach }}</p>
+
+{% endif %}
+
+{% endblock %}

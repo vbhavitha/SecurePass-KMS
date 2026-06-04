@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Key Management Center</h1>
+
+{% if message %}
+<p><b>{{ message }}</b></p>
+{% endif %}
+
+<form method="POST">
+
+    <button
+        type="submit"
+        name="generate_aes"
+    >
+        Generate AES Key
+    </button>
+
+</form>
+
+<br>
+
+<form method="POST">
+
+    <button
+        type="submit"
+        name="generate_rsa"
+    >
+        Generate RSA Key Pair
+    </button>
+
+</form>
+
+<br>
+
+<form method="POST">
+
+    <input
+        type="number"
+        name="key_id"
+        placeholder="Key ID"
+        required
+    >
+
+    <button
+        type="submit"
+        name="revoke"
+    >
+        Revoke Key
+    </button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Key Inventory</h1>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Key Name</th>
+        <th>Type</th>
+        <th>Created At</th>
+        <th>Status</th>
+    </tr>
+
+    {% for key in keys %}
+
+    <tr>
+
+        <td>{{ key[0] }}</td>
+        <td>{{ key[1] }}</td>
+        <td>{{ key[2] }}</td>
+        <td>{{ key[3] }}</td>
+        <td>{{ key[4] }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
