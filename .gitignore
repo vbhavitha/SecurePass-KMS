@@ -10,3 +10,6 @@ keys/rsa/*.pem
 uploads/
 encrypted_files/
 decrypted_files/
+
+.vscode/
+.idea/
